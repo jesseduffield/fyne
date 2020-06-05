@@ -3,9 +3,9 @@ package widget
 import (
 	"testing"
 
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/test"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/theme"
 	"github.com/stretchr/testify/assert"
 )
 

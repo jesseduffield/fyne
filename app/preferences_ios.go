@@ -5,7 +5,7 @@ package app
 import (
 	"unsafe"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 /*

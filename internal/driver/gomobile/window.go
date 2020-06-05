@@ -1,11 +1,11 @@
 package gomobile
 
 import (
-	"fyne.io/fyne"
-	"fyne.io/fyne/internal/cache"
-	"fyne.io/fyne/layout"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/internal/cache"
+	"github.com/jesseduffield/fyne/layout"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 type window struct {

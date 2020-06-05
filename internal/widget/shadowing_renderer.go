@@ -1,7 +1,7 @@
 package widget
 
 import (
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 // ShadowingRenderer is a renderer that adds a shadow arount the rendered content.

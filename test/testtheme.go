@@ -3,8 +3,8 @@ package test
 import (
 	"image/color"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 var (

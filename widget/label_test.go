@@ -3,10 +3,10 @@ package widget
 import (
 	"testing"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/internal/painter/software"
-	"fyne.io/fyne/test"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/internal/painter/software"
+	"github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/theme"
 
 	"github.com/stretchr/testify/assert"
 )

@@ -6,9 +6,9 @@ import (
 	"math"
 	"sync"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/internal/driver"
-	"fyne.io/fyne/internal/painter"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/internal/driver"
+	"github.com/jesseduffield/fyne/internal/painter"
 )
 
 // Painter defines the functionality of our OpenGL based renderer

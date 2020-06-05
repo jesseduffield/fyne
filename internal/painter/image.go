@@ -12,9 +12,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/internal"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/internal"
 	"github.com/srwiley/oksvg"
 	"github.com/srwiley/rasterx"
 )

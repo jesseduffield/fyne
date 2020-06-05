@@ -4,7 +4,7 @@ import (
 	"image/color"
 	"math"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 // Declare conformity with CanvasObject interface

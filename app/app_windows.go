@@ -15,8 +15,8 @@ import (
 	"strings"
 	"syscall"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 const notificationTemplate = `$title = "%s"

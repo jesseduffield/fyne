@@ -13,10 +13,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/image/font"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/test"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 func TestAssertCanvasTappableAt(t *testing.T) {

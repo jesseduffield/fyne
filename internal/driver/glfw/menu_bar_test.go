@@ -7,11 +7,11 @@ import (
 	"strconv"
 	"testing"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/internal/driver/glfw"
-	"fyne.io/fyne/test"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/internal/driver/glfw"
+	"github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 
 	"github.com/stretchr/testify/assert"
 )

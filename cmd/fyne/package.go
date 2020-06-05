@@ -14,10 +14,10 @@ import (
 	"runtime"
 	"strings"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/cmd/fyne/internal/mobile"
 	ico "github.com/Kodeworks/golang-image-ico"
 	"github.com/jackmordaunt/icns"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/cmd/fyne/internal/mobile"
 	"github.com/josephspurrier/goversioninfo"
 	"github.com/pkg/errors"
 	"golang.org/x/mod/modfile"

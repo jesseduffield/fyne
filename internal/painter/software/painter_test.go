@@ -5,14 +5,14 @@ import (
 	"image/color"
 	"testing"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/internal/painter/software"
-	internalTest "fyne.io/fyne/internal/test"
-	internalWidget "fyne.io/fyne/internal/widget"
-	"fyne.io/fyne/test"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/internal/painter/software"
+	internalTest "github.com/jesseduffield/fyne/internal/test"
+	internalWidget "github.com/jesseduffield/fyne/internal/widget"
+	"github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 func makeTestImage(w, h int) image.Image {

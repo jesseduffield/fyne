@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 // OpenFileFromURI loads a file read stream from a resource identifier.

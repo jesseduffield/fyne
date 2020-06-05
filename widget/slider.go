@@ -3,10 +3,10 @@ package widget
 import (
 	"math"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/internal/widget"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/internal/widget"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 // Orientation controls the horizontal/vertical layout of a widget

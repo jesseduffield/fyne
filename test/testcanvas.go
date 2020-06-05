@@ -5,10 +5,10 @@ import (
 	"image/draw"
 	"sync"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/driver/desktop"
-	"fyne.io/fyne/internal"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/driver/desktop"
+	"github.com/jesseduffield/fyne/internal"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 var (

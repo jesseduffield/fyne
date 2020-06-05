@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/internal/cache"
-	"fyne.io/fyne/test"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/internal/cache"
+	"github.com/jesseduffield/fyne/test"
 	"github.com/stretchr/testify/assert"
 )
 

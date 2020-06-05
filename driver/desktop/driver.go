@@ -1,6 +1,6 @@
 package desktop
 
-import "fyne.io/fyne"
+import "github.com/jesseduffield/fyne"
 
 // Driver represents the extended capabilities of a desktop driver
 type Driver interface {

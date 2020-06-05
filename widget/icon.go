@@ -3,10 +3,10 @@ package widget
 import (
 	"image/color"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/internal/widget"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/internal/widget"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 type iconRenderer struct {

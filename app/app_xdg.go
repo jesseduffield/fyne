@@ -12,8 +12,8 @@ import (
 
 	"github.com/godbus/dbus/v5"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 func defaultTheme() fyne.Theme {

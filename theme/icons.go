@@ -7,7 +7,7 @@ import (
 	"image/color"
 	"log"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 // ThemedResource is a resource wrapper that will return an appropriate resource

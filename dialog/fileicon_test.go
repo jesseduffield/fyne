@@ -9,9 +9,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/storage"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/storage"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 func TestNewFileIcon(t *testing.T) {

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 type uri struct {

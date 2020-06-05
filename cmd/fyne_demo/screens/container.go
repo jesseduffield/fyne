@@ -5,11 +5,11 @@ import (
 	"image/color"
 	"net/url"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/layout"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/layout"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 // ContainerScreen loads a tab panel for containers and layouts
@@ -27,7 +27,7 @@ func ContainerScreen() fyne.CanvasObject {
 }
 
 func makeAccordionTab() fyne.CanvasObject {
-	link, err := url.Parse("https://fyne.io/")
+	link, err := url.Parse("https://github.com/jesseduffield/")
 	if err != nil {
 		fyne.LogError("Could not parse URL", err)
 	}

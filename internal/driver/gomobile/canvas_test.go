@@ -7,13 +7,13 @@ import (
 	"testing"
 	"time"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/driver/mobile"
-	"fyne.io/fyne/layout"
-	_ "fyne.io/fyne/test"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/driver/mobile"
+	"github.com/jesseduffield/fyne/layout"
+	_ "github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 
 	"github.com/stretchr/testify/assert"
 )

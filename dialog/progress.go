@@ -1,9 +1,9 @@
 package dialog
 
 import (
-	"fyne.io/fyne"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 // ProgressDialog is a simple dialog window that displays text and a progress bar.

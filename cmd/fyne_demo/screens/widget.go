@@ -6,10 +6,10 @@ import (
 	"net/url"
 	"time"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/layout"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/layout"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 const (
@@ -93,7 +93,7 @@ func makeTextGrid() *widget.TextGrid {
 func makeTextTab() fyne.CanvasObject {
 	label := widget.NewLabel("Label")
 
-	link, err := url.Parse("https://fyne.io/")
+	link, err := url.Parse("https://github.com/jesseduffield/")
 	if err != nil {
 		fyne.LogError("Could not parse URL", err)
 	}

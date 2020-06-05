@@ -3,9 +3,9 @@ package widget
 import (
 	"sync"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/internal/cache"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/internal/cache"
 )
 
 // Base is a simple base widget for internal use.

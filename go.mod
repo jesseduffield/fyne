@@ -1,4 +1,4 @@
-module fyne.io/fyne
+module github.com/jesseduffield/fyne
 
 go 1.12
 

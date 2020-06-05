@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/internal"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/internal"
 )
 
 type preferences struct {

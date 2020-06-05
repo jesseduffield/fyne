@@ -4,8 +4,9 @@ We should wrap this into our current tooling before release!
 # Pre-requisites
 
 Please ensure that your fyne install is the latest development version (both library and "fyne" command line tool).
+
 ```
-go get -u fyne.io/fyne fyne.io/fyne/cmd/fyne
+go get -u github.com/jesseduffield/fyne github.com/jesseduffield/fyne/cmd/fyne
 ```
 
 ## Android
@@ -28,11 +29,11 @@ then a provisioning profile.
 
 Apps can then be compiled simply like the following:
 
-`fyne package -os android fyne.io/fyne/cmd/hello`
+`fyne package -os android github.com/jesseduffield/fyne/cmd/hello`
 
 For iOS apps you must also specify the bundleID of the app which must match an installed provisioning profile.
 
-`fyne package -os ios -appid=com.teamid.appid fyne.io/fyne/cmd/hello`
+`fyne package -os ios -appid=com.teamid.appid github.com/jesseduffield/fyne/cmd/hello`
 
 # Distribution
 
@@ -48,12 +49,12 @@ you should add the following to AndroidManifest.xml:
 `<application android:label="..." android:debuggable="false">`
 
 This file should be placed in the `main` package, where you are running your builds from.
-If you have not set up a manifest file then fyne can make the changes for you by 
+If you have not set up a manifest file then fyne can make the changes for you by
 adding a `-release` parameter to your package build:
 
 `$ fyne package -os "android" -release ...`
 
-You may also need to correct the alignment of the APK file before uploading it to the 
+You may also need to correct the alignment of the APK file before uploading it to the
 Play Store, the following command should work:
 
 `${ANDROID_HOME}/build-tools/zipalign 4 myapp.apk aligned.apk`
@@ -70,11 +71,12 @@ Be sure to find the appropriate values for each of the <placeholder> items!
 The important part of this process is to re-codesign using a distribution certificate
 which must match the app store provisioning profile in step 3.
 
-* `mkdir Payload`
-* `cp -r myapp.app Payload/`
-* `cp ~/Library/MobileDevice/Provisioning\ Profiles/<app-store-distribution>.mobileprovision Payload/myapp.app/embedded.mobileprovision`
-* `open Payload/myapp.app/Info.plist` (and check the build etc are correct - then save)
-* create a new text file called entitlements.plist, enter the following content:
+- `mkdir Payload`
+- `cp -r myapp.app Payload/`
+- `cp ~/Library/MobileDevice/Provisioning\ Profiles/<app-store-distribution>.mobileprovision Payload/myapp.app/embedded.mobileprovision`
+- `open Payload/myapp.app/Info.plist` (and check the build etc are correct - then save)
+- create a new text file called entitlements.plist, enter the following content:
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -85,14 +87,14 @@ which must match the app store provisioning profile in step 3.
 </dict>
 </plist>
 ```
-* `codesign -f -vv -s "<distribution certificate name>" --entitlements entitlements.plist Payload/myapp.app/`
-* If you have not already done so create an app specific password for your
-Apple account ([appleid.com](https://appleid.apple.com))
-* `zip -r myapp.ipa Payload/`
-* `xcrun altool --upload-app --file myapp.ipa --username <appleId> --password <app-specific-password>`
+
+- `codesign -f -vv -s "<distribution certificate name>" --entitlements entitlements.plist Payload/myapp.app/`
+- If you have not already done so create an app specific password for your
+  Apple account ([appleid.com](https://appleid.apple.com))
+- `zip -r myapp.ipa Payload/`
+- `xcrun altool --upload-app --file myapp.ipa --username <appleId> --password <app-specific-password>`
 
 The upload make take some time but once it is complete you should see the build
 appear alongside the appropriate entry in your app store connect metadata.
 
 This process will be improved soon!
-

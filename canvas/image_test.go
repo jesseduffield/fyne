@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"fyne.io/fyne/canvas"
+	"github.com/jesseduffield/fyne/canvas"
 
 	"github.com/stretchr/testify/assert"
 )

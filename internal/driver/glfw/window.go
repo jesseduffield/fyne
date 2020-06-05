@@ -9,12 +9,12 @@ import (
 	"sync"
 	"time"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/driver/desktop"
-	"fyne.io/fyne/internal"
-	"fyne.io/fyne/internal/cache"
-	"fyne.io/fyne/internal/driver"
-	"fyne.io/fyne/internal/painter/gl"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/driver/desktop"
+	"github.com/jesseduffield/fyne/internal"
+	"github.com/jesseduffield/fyne/internal/cache"
+	"github.com/jesseduffield/fyne/internal/driver"
+	"github.com/jesseduffield/fyne/internal/painter/gl"
 
 	"github.com/go-gl/glfw/v3.3/glfw"
 )

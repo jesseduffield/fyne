@@ -3,8 +3,8 @@ package widget
 import (
 	"image/color"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 // Label widget is a label component with appropriate padding and layout.

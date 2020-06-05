@@ -1,6 +1,6 @@
 package mobile
 
-import "fyne.io/fyne"
+import "github.com/jesseduffield/fyne"
 
 // TouchEvent contains data relating to mobile touch events
 type TouchEvent struct {

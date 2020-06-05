@@ -3,9 +3,9 @@ package app_test
 import (
 	"testing"
 
-	"fyne.io/fyne/internal/app"
-	"fyne.io/fyne/test"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne/internal/app"
+	"github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/widget"
 
 	"github.com/stretchr/testify/assert"
 )

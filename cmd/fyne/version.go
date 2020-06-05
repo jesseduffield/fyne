@@ -5,7 +5,7 @@ import (
 	"os"
 	"runtime/debug"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 // Declare conformity to command interface

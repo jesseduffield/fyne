@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"strings"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 // Declare conformity to command interface
@@ -37,7 +37,7 @@ func writeHeader(pkg string) {
 	fmt.Println()
 	fmt.Println("package", pkg)
 	fmt.Println()
-	fmt.Println("import \"fyne.io/fyne\"")
+	fmt.Println("import \"github.com/jesseduffield/fyne\"")
 }
 
 func sanitiseName(file, prefix string) string {

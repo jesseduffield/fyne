@@ -9,10 +9,10 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/storage"
-	"fyne.io/fyne/test"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/storage"
+	"github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 func TestShowFileOpen(t *testing.T) {

@@ -5,15 +5,15 @@ import (
 	"math"
 	"sync"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/internal"
-	"fyne.io/fyne/internal/app"
-	"fyne.io/fyne/internal/cache"
-	"fyne.io/fyne/internal/driver"
-	"fyne.io/fyne/internal/painter/gl"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/internal"
+	"github.com/jesseduffield/fyne/internal/app"
+	"github.com/jesseduffield/fyne/internal/cache"
+	"github.com/jesseduffield/fyne/internal/driver"
+	"github.com/jesseduffield/fyne/internal/painter/gl"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 // Declare conformity with Canvas interface

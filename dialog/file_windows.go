@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"syscall"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 func driveMask() uint32 {

@@ -3,8 +3,8 @@ package widget
 import (
 	"image/color"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/driver/desktop"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/driver/desktop"
 )
 
 var _ fyne.Widget = (*OverlayContainer)(nil)

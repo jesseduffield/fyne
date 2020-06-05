@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 func TestTestCanvas_Capture(t *testing.T) {

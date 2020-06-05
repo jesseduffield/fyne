@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 // Declare conformity to command interface

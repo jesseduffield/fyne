@@ -4,17 +4,17 @@ import (
 	"net/url"
 	"testing"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/driver/desktop"
-	_ "fyne.io/fyne/test"
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/driver/desktop"
+	_ "github.com/jesseduffield/fyne/test"
+	"github.com/jesseduffield/fyne/theme"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
 func TestHyperlink_MinSize(t *testing.T) {
-	u, err := url.Parse("https://fyne.io/")
+	u, err := url.Parse("https://github.com/jesseduffield/")
 	assert.Nil(t, err)
 
 	hyperlink := NewHyperlink("Test", u)
@@ -27,7 +27,7 @@ func TestHyperlink_MinSize(t *testing.T) {
 }
 
 func TestHyperlink_Cursor(t *testing.T) {
-	u, err := url.Parse("https://fyne.io/")
+	u, err := url.Parse("https://github.com/jesseduffield/")
 	hyperlink := NewHyperlink("Test", u)
 
 	assert.Nil(t, err)
@@ -64,7 +64,7 @@ func TestHyperlink_Resize(t *testing.T) {
 }
 
 func TestHyperlink_SetText(t *testing.T) {
-	u, err := url.Parse("https://fyne.io/")
+	u, err := url.Parse("https://github.com/jesseduffield/")
 	assert.Nil(t, err)
 
 	hyperlink := &Hyperlink{Text: "Test", URL: u}

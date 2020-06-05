@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"net/url"
 
-	"fyne.io/fyne"
-	"fyne.io/fyne/app"
-	"fyne.io/fyne/canvas"
-	"fyne.io/fyne/cmd/fyne_demo/data"
-	"fyne.io/fyne/cmd/fyne_demo/screens"
-	"fyne.io/fyne/layout"
-	"fyne.io/fyne/theme"
-	"fyne.io/fyne/widget"
+	"github.com/jesseduffield/fyne"
+	"github.com/jesseduffield/fyne/app"
+	"github.com/jesseduffield/fyne/canvas"
+	"github.com/jesseduffield/fyne/cmd/fyne_demo/data"
+	"github.com/jesseduffield/fyne/cmd/fyne_demo/screens"
+	"github.com/jesseduffield/fyne/layout"
+	"github.com/jesseduffield/fyne/theme"
+	"github.com/jesseduffield/fyne/widget"
 )
 
 const preferenceCurrentTab = "currentTab"
@@ -46,9 +46,9 @@ func welcomeScreen(a fyne.App) fyne.CanvasObject {
 		widget.NewHBox(layout.NewSpacer(), logo, layout.NewSpacer()),
 
 		widget.NewHBox(layout.NewSpacer(),
-			widget.NewHyperlink("fyne.io", parseURL("https://fyne.io/")),
+			widget.NewHyperlink("fyne.io", parseURL("https://github.com/jesseduffield/")),
 			widget.NewLabel("-"),
-			widget.NewHyperlink("documentation", parseURL("https://fyne.io/develop/")),
+			widget.NewHyperlink("documentation", parseURL("https://github.com/jesseduffield/develop/")),
 			widget.NewLabel("-"),
 			widget.NewHyperlink("sponsor", parseURL("https://github.com/sponsors/fyne-io")),
 			layout.NewSpacer(),

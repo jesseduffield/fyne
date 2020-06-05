@@ -3,7 +3,7 @@ package cache
 import (
 	"sync"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 var renderers sync.Map

@@ -1,10 +1,10 @@
 package gomobile
 
 import (
-	"fyne.io/fyne/driver/mobile"
 	"github.com/fyne-io/mobile/event/size"
+	"github.com/jesseduffield/fyne/driver/mobile"
 
-	"fyne.io/fyne"
+	"github.com/jesseduffield/fyne"
 )
 
 type device struct {

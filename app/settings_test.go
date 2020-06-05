@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"fyne.io/fyne/theme"
+	"github.com/jesseduffield/fyne/theme"
 )
 
 func TestSettingsLoad(t *testing.T) {

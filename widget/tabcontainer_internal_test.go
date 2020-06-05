@@ -3,7 +3,7 @@ package widget
 import (
 	"testing"
 
-	"fyne.io/fyne/internal/cache"
+	"github.com/jesseduffield/fyne/internal/cache"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -26,4 +26,3 @@ func Test_tabButtonRenderer_SetText(t *testing.T) {
 	renderer = cache.Renderer(button).(*tabButtonRenderer)
 	assert.Equal(t, "Replace", renderer.label.Text)
 }
-
