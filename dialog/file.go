@@ -28,9 +28,10 @@ type fileDialog struct {
 	files      *fyne.Container
 	fileScroll *widget.ScrollContainer
 
-	win      *widget.PopUp
-	selected *fileDialogItem
-	dir      string
+	win         *widget.PopUp
+	selected    []*fileDialogItem
+	dir         string
+	multiSelect bool
 }
 
 // FileDialog is a dialog containing a file picker for use in opening or saving files.
@@ -107,13 +108,25 @@ func (f *fileDialog) makeUI() fyne.CanvasObject {
 						f.file.onClosedCallback(true)
 					}
 				}, f.file.parent)
-		} else if f.selected != nil {
-			callback := f.file.callback.(func(fyne.URIReadCloser, error))
+		} else if len(f.selected) > 0 {
+			callback := f.file.callback.(func([]fyne.URIReadCloser, error))
 			f.win.Hide()
 			if f.file.onClosedCallback != nil {
 				f.file.onClosedCallback(true)
 			}
-			callback(storage.OpenFileFromURI(storage.NewURI("file://" + f.selected.path)))
+
+			selectedFiles := make([]fyne.URIReadCloser, len(f.selected))
+			var err error
+			for i, dialogItem := range f.selected {
+				selectedFile, err := storage.OpenFileFromURI(storage.NewURI("file://" + dialogItem.path))
+				if err != nil {
+					selectedFiles = nil
+					break
+				}
+				selectedFiles[i] = selectedFile
+			}
+
+			callback(selectedFiles, err)
 		}
 	})
 	f.open.Style = widget.PrimaryButton
@@ -129,9 +142,9 @@ func (f *fileDialog) makeUI() fyne.CanvasObject {
 		}
 		if f.file.callback != nil {
 			if f.file.save {
-				f.file.callback.(func(fyne.URIWriteCloser, error))(nil, nil)
+				f.file.callback.(func([]fyne.URIWriteCloser, error))(nil, nil)
 			} else {
-				f.file.callback.(func(fyne.URIReadCloser, error))(nil, nil)
+				f.file.callback.(func([]fyne.URIReadCloser, error))(nil, nil)
 			}
 		}
 	})
@@ -192,15 +205,26 @@ func (f *fileDialog) refreshDir(dir string) {
 		fi.ExtendBaseWidget(fi)
 		icons = append(icons, fi)
 	}
+
+	selectedPathMap := map[string]bool{}
+	for _, item := range f.selected {
+		selectedPathMap[item.path] = true
+	}
+
 	for _, file := range files {
 		if isHidden(file.Name(), dir) {
 			continue
 		}
+
 		itemPath := filepath.Join(dir, file.Name())
-		if file.IsDir() {
-			icons = append(icons, f.newFileItem(itemPath, true))
-		} else if f.file.filter == nil || f.file.filter.Matches(storage.NewURI("file://"+itemPath)) {
-			icons = append(icons, f.newFileItem(itemPath, false))
+		fileMatchesFiler := f.file.filter == nil || f.file.filter.Matches(storage.NewURI("file://"+itemPath))
+		if file.IsDir() || fileMatchesFiler {
+			item := f.newFileItem(itemPath, file.IsDir())
+			_, selected := selectedPathMap[item.path]
+			if selected {
+				item.isCurrent = true
+			}
+			icons = append(icons, item)
 		}
 	}
 
@@ -211,7 +235,7 @@ func (f *fileDialog) refreshDir(dir string) {
 }
 
 func (f *fileDialog) setDirectory(dir string) {
-	f.setSelected(nil)
+	f.onSelected(nil)
 	f.dir = dir
 
 	f.breadcrumb.Children = nil
@@ -241,24 +265,63 @@ func (f *fileDialog) setDirectory(dir string) {
 	f.refreshDir(dir)
 }
 
-func (f *fileDialog) setSelected(file *fileDialogItem) {
-	if f.selected != nil {
-		f.selected.isCurrent = false
-		f.selected.Refresh()
-	}
-	if file != nil && file.isDirectory() {
-		f.setDirectory(file.path)
-		return
-	}
-	f.selected = file
+func (f *fileDialog) addSelectedItem(selectedItem *fileDialogItem) {
+	selectedItem.isCurrent = true
+	selectedItem.Refresh()
 
-	if file == nil || file.path == "" {
+	if f.multiSelect {
+		f.selected = append(f.selected, selectedItem)
+	} else {
+		for _, item := range f.selected {
+			item.isCurrent = false
+			item.Refresh()
+		}
+		f.selected = []*fileDialogItem{selectedItem}
+	}
+}
+
+func (f *fileDialog) removeItemAtIdx(idx int) {
+	item := f.selected[idx]
+	item.isCurrent = false
+	item.Refresh()
+	f.selected = append(f.selected[0:idx], f.selected[idx+1:]...)
+}
+
+func (f *fileDialog) onSelected(file *fileDialogItem) {
+	if file != nil {
+		existingIdx := -1
+		for i, dialogItem := range f.selected {
+			if file.path == dialogItem.path {
+				existingIdx = i
+				break
+			}
+		}
+
+		if file.isDirectory() {
+			f.setDirectory(file.path)
+			return
+		}
+
+		if existingIdx != -1 {
+			f.removeItemAtIdx(existingIdx)
+		} else {
+			f.addSelectedItem(file)
+		}
+	} else {
+		f.selected = nil
+	}
+
+	if len(f.selected) > 0 {
+		f.open.Enable()
+		lastFile := f.selected[len(f.selected)-1]
+		basePath := ""
+		if lastFile.path != "" {
+			basePath = filepath.Base(lastFile.path)
+		}
+		f.fileName.SetText(basePath)
+	} else {
 		f.fileName.SetText("")
 		f.open.Disable()
-	} else {
-		file.isCurrent = true
-		f.fileName.SetText(filepath.Base(file.path))
-		f.open.Enable()
 	}
 }
 
@@ -345,9 +408,16 @@ func (f *FileDialog) SetFilter(filter storage.FileFilter) {
 	}
 }
 
+// SetFilter sets a filter for limiting files that can be chosen in the file dialog.
+func (f *FileDialog) SetMultiSelect(multiSelect bool) {
+	if f.dialog != nil {
+		f.dialog.multiSelect = multiSelect
+	}
+}
+
 // NewFileOpen creates a file dialog allowing the user to choose a file to open.
 // The dialog will appear over the window specified when Show() is called.
-func NewFileOpen(callback func(fyne.URIReadCloser, error), parent fyne.Window) *FileDialog {
+func NewFileOpen(callback func([]fyne.URIReadCloser, error), parent fyne.Window) *FileDialog {
 	dialog := &FileDialog{callback: callback, parent: parent}
 	return dialog
 }
@@ -362,7 +432,7 @@ func NewFileSave(callback func(fyne.URIWriteCloser, error), parent fyne.Window) 
 
 // ShowFileOpen creates and shows a file dialog allowing the user to choose a file to open.
 // The dialog will appear over the window specified.
-func ShowFileOpen(callback func(fyne.URIReadCloser, error), parent fyne.Window) {
+func ShowFileOpen(callback func([]fyne.URIReadCloser, error), parent fyne.Window) {
 	dialog := NewFileOpen(callback, parent)
 	if fileOpenOSOverride(dialog) {
 		return

@@ -137,14 +137,15 @@ func loadDialogGroup(win fyne.Window) *widget.Group {
 			prog.Show()
 		}),
 		widget.NewButton("File Open With Filter (.txt or .png)", func() {
-			fd := dialog.NewFileOpen(func(reader fyne.URIReadCloser, err error) {
-				if err == nil && reader == nil {
-					return
-				}
+			fd := dialog.NewFileOpen(func(readers []fyne.URIReadCloser, err error) {
 				if err != nil {
 					dialog.ShowError(err, win)
 					return
 				}
+				if len(readers) == 0 {
+					return
+				}
+				reader := readers[0]
 
 				fileOpened(reader)
 			}, win)

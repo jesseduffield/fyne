@@ -29,7 +29,7 @@ type fileDialogItem struct {
 }
 
 func (i *fileDialogItem) Tapped(_ *fyne.PointEvent) {
-	i.picker.setSelected(i)
+	i.picker.onSelected(i)
 	i.Refresh()
 }
 
