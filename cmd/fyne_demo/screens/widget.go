@@ -294,7 +294,7 @@ func WidgetScreen() fyne.CanvasObject {
 		widget.NewTabItem("Progress", progress),
 		widget.NewTabItem("Form", makeFormTab()),
 	)
-	tabs.OnChanged = func(t *widget.TabItem) {
+	tabs.OnChanged = func(t *widget.TabItem, index int) {
 		if t.Content == progress {
 			startProgress()
 		} else {

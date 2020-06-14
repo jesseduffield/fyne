@@ -17,7 +17,7 @@ type TabContainer struct {
 	BaseWidget
 
 	Items       []*TabItem
-	OnChanged   func(tab *TabItem)
+	OnChanged   func(tab *TabItem, index int)
 	current     int
 	tabLocation TabLocation
 }
@@ -140,7 +140,7 @@ func (c *TabContainer) SelectTabIndex(index int) {
 	c.Refresh()
 
 	if c.OnChanged != nil {
-		c.OnChanged(c.Items[c.current])
+		c.OnChanged(c.Items[c.current], index)
 	}
 }
 
